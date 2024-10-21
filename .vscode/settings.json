@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "utmp.h": "c"
+        "utmp.h": "c",
+        "command.h": "c",
+        "apps.h": "c"
     }
 }

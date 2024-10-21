@@ -10,21 +10,21 @@ int main()
     call(printf("you can type commands.\n\n"));
     
     // open to send
-    int fd_command = open(path_fifo_client_server, O_RDWR);
-    if(-1 == fd_command)
+    int fd_send = open(path_fifo_client_server, O_RDWR);
+    if(-1 == fd_send)
     {
         call(mknod(path_fifo_client_server, __S_IFIFO | 0777, 0));
-        fd_command = open(path_fifo_client_server, O_RDWR);
-        call(fd_command);
+        fd_send = open(path_fifo_client_server, O_RDWR);
+        call(fd_send);
     }
 
     // open to receive
-    int fd_output = open(path_fifo_server_client, O_RDWR);
-    if(-1 == fd_output) 
+    int fd_receive = open(path_fifo_server_client, O_RDWR);
+    if(-1 == fd_receive) 
     {
         call(mknod(path_fifo_server_client, __S_IFIFO | 0777, 0));
-        fd_output = open(path_fifo_server_client, O_RDWR);
-        call(fd_output);
+        fd_receive = open(path_fifo_server_client, O_RDWR);
+        call(fd_receive);
     }
     
     //------------------------------------------------
@@ -36,16 +36,18 @@ int main()
         char* line = 0;
         call(getline(&line, &line_size, stdin));
         char* command = convert_line(line);
-        call(write(fd_command, command, strlen(command)));
+        call(write(fd_send, command, strlen(command)));
         free(line);
 
         char number[3];
-        call(read(fd_output, number, 2 * sizeof(char)));
+        call(read(fd_receive, number, 2 * sizeof(char)));
         number[2] = 0;
         int n_server = atoi(number);
 
+        printf("s: %s\n", command);
+        
         char output[MAX_OUTPUT_SIZE];
-        call(read(fd_output, output, n_server));
+        call(read(fd_receive, output, n_server));
         output[n_server] = 0;
         call(printf("%s\n\n", output));
         
@@ -54,8 +56,8 @@ int main()
         free(command); 
     }
 
-    call(close(fd_command));
-    call(close(fd_output));
+    call(close(fd_send));
+    call(close(fd_receive));
 
     return EXIT_SUCCESS;
 }

@@ -12,3 +12,9 @@ two applications (pipes, fifos, socketpairs) (named "client" and "server"), spec
     - "get-proc-info : pid" - need login - displays information (name, state, ppid, uid, vmsize) about the process whose pid is specified (source of information: the file /proc/<pid>/status).
     - "logout";
     - "quit".
+
+- extra:
+    - 04 <= size of command <= 99 (still the first two bytes are for the number)
+    - 10 <= size of output <= 99
+
+    - rm dev/client-server-fifo dev/server-client-fifo
