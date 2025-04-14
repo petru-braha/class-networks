@@ -1,0 +1,11 @@
+Adaptati exercitiul anterior la modelul concurential de server discutat in cadrul acestui laborator. 
+Modificati solutia astfel incat raspunsul trimis de server va folosi urmatoarea structura de data.
+ struct response
+   {
+      char message[30];
+      int result;
+   }
+
+    
+Mesajul de la server la client va folosi aceiasi structura ca in exercitiul anterior.
+Campul message va include in mod obisnuit ca mesaj de raspuns “The result is:”, iar campul result va contine rezultatul operatiei calculate de server. Serverul va “obosi” la fiecare al treilea client si va trimite ca mesaj “I am tired. Try another time.”, fara a mai calcula rezultatul operatiei (nu va mai completa campul in structura trimisa).

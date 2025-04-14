@@ -1,0 +1,4 @@
+USE ONLY ONE PORT!
+send to server using two or more sockets (at least one udp and one tcp). 
+for each socket, it is compulsory to have a different port.
+binding attaches to a descriptor an address.

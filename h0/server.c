@@ -41,7 +41,8 @@ char* iteration(const char* const command, const int command_size)
         // patch
         if(strstr(buffer, "welcome"))
             strcpy(server_username, buffer + 9);
-        server_username[strlen(server_username) - 1] = 0;
+        if('!' != buffer[strlen(buffer) - 1])
+          server_username[strlen(server_username) - 1] = 0;
         if(strstr(buffer, "we will miss"))
             for(size_t i = 0; i < MAX_STRING_SIZE; i++)
                 server_username[i] = 0;

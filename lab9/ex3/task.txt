@@ -1,0 +1,1 @@
+send to server using two or more tcp sockets. for each socket it is compulsory to have a different port.

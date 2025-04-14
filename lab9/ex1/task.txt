@@ -1,0 +1,15 @@
+Dezvoltati un client si un server TCP, urmand pasii descrisi in cadrul laboratorului (sau modificand direct exemplul din pagina cursului), unde: 
+clientul va trimite doua numere si un cod de operatie (‘+’, ‘-’, ‘*’, ‘/’) spre server, si va receptiona inapoi rezultatul
+cererea va fi trimisa ca o structura ce include campurile necesare, definita astfel:
+struct operation
+   {
+      int number1;    //operand 1
+
+      int number2;  //operand 2
+
+      char op;      //opcode - '+','-','*' sau '/'
+   };
+
+    
+serverul va primi structura cerere, si va calcula si returna rezultatul clientului ca intreg
+FOLOSITI UN ENDIAN SPECIFIC COMUNICARII IN RETEA

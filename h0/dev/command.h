@@ -40,10 +40,8 @@ char* get_logged_users()
     size_line = UT_NAMESIZE + UT_HOSTSIZE + sizeof(int32_t);
     
     setutent();
-    for(struct utmp* user = getutent(); user; user = getutent())
-        count++;
-
-    setutent();
+    struct utmp* user = getutent();
+    
     char* message = (char*)malloc(count * size_line);
     
     for(struct utmp* user = getutent(); user; user = getutent())

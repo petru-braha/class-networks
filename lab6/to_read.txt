@@ -1,0 +1,29 @@
+incercati sa rulati binarul descarcat: ./server 2025
+binarul respectiv reprezinta un server TCP care asculta la portul specificat prin argv[1] si care poate juca tic-tac-toe cu un client. 
+Scrieti-va propriul client pentru serverul de mai sus.
+
+Protocolul de comunicare - serverul stie sa raspunda la urmatoarele comenzi:
+start - inceperea jocului
+move:<position> - specificand faptul ca doriti sa mutati pe pozitia respectiva (numerotat de la 0 la 8)
+Raspunsurile vor fi de forma:
+board:<array> - raspunsul va contine un vector reprezentand tabla de joc
+error:message - mesaj de eroare
+end:message - sfarsitul jocului si un mesaj cu rezultatul
+
+Reprezentare tablii de joc: un array cu 9 pozitii, cate 3 pentru fiecare linie a tablei de tic-tac-toe. Clientul va extrage tabla de joc din raspunsul de tip board:<array> si il va reprezenta vizual mai usor de inteles.
+De exemplu, mesajul board:001200102 reprezinta urmatoarea tabla:
+
+0
+0
+1
+2
+0
+0
+1
+0
+2
+
+
+
+
+Howto: pentru a vedea ca va functioneaza minimal clientul, scrieti mai intai logica de conectare la server, dupa trimiteti mesajul “start”. Daca serverul va raspunde cu mesajul asteptat (cel descris mai sus), puteti continua implementarea comunicarii.

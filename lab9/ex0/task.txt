@@ -1,0 +1,6 @@
+La adresa urmatoare: 13.81.174.116:2900 se afla un server care are ca scop inregistarea prezentelor pentru laboratorul curent. Pentru a inregistra o prezenta este nevoie de urmatoarele date : nume, prenume si grupa.
+Folosind exemplele din cadrul laboratorului creati un client TCP prin care va conectati la serverul mai sus mentionat si inregistrati o prezenta urmand indicatiile:
+Protocolul de comunicare este urmatorul: dupa conectarea la server este nevoie sa creati un mesaj de forma: "nume:prenume:grupa".
+Pentru a transmite informatia este nevoie de doua scrieri(doua apeluri send/write).
+Prima va trimite lungimea folosind tipul int(4 octeti).
+A doua scriere va trimite mesajul efectiv format mai sus.
